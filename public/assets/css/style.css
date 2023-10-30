@@ -16,3 +16,16 @@
     /*font-weight: bold;*/
     font-size: 4em;
 }
+
+.btn 
+{
+    background-color: #0C0920;
+    font-family: 'Baloo Bhaina', cursive;
+    color: #F3F3F7;
+}
+
+.footer
+{
+    background-color: #609A7D;
+    color: #F3F3F7;
+}
