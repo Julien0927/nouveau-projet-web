@@ -1,0 +1,18 @@
+.navColor
+{
+    background-color: #609A7D
+}
+
+.navbar-toggler
+{
+    border-color: #0C0920;
+    background-color: #F3F3F7
+}
+
+.title
+{
+    color: #609A7D;
+    font-family: 'Reenie Beanie', sans-serif;
+    /*font-weight: bold;*/
+    font-size: 4em;
+}
