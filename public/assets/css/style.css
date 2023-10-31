@@ -1,6 +1,7 @@
 .navColor
 {
-    background-color: #609A7D
+    background-color: #609A7D;
+    color: #F3F3F7;
 }
 
 .navbar-toggler
@@ -16,6 +17,42 @@
     /*font-weight: bold;*/
     font-size: 4em;
 }
+
+h2
+{
+    color: #DC9A7C;
+    font-family: 'Noto sans', sans-serif;
+    /*font-weight: bold;*/
+    font-size: 2em;
+}
+
+.photo
+{
+    border-radius: 30%;
+    border: 3px solid #609A7D;
+    height: 300px;
+    width: 250px;
+}
+
+.services
+{
+    background: linear-gradient(
+        to top,
+        #F3F3F7 81%,
+        #609A7D 81% 82%,
+        #DC9A7C 82%
+    );
+    border-radius: 10%;
+    border: 3px solid #609A7D;
+    width: 85%;
+    height: 100%;
+}
+
+.services h2
+{
+    color: #F3F3F7
+}
+
 
 .btn 
 {

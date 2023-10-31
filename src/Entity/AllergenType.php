@@ -18,16 +18,16 @@ class AllergenType
     #[ORM\Column(length: 255)]
     private ?string $type = null;
 
-    #[ORM\OneToMany(mappedBy: 'allergen', targetEntity: Recipe::class)]
-    private Collection $recipes;
-
-    #[ORM\OneToMany(mappedBy: 'allergen', targetEntity: User::class)]
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'allergenType')]
     private Collection $users;
+
+    #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'allergenType')]
+    private Collection $recipes;
 
     public function __construct()
     {
-        $this->recipes = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->recipes = new ArrayCollection();
     }
 
 
@@ -49,36 +49,6 @@ class AllergenType
     }
 
     /**
-     * @return Collection<int, Recipe>
-     */
-    public function getRecipes(): Collection
-    {
-        return $this->recipes;
-    }
-
-    public function addRecipe(Recipe $recipe): static
-    {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes->add($recipe);
-            $recipe->setAllergen($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecipe(Recipe $recipe): static
-    {
-        if ($this->recipes->removeElement($recipe)) {
-            // set the owning side to null (unless already changed)
-            if ($recipe->getAllergen() === $this) {
-                $recipe->setAllergen(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, User>
      */
     public function getUsers(): Collection
@@ -90,7 +60,7 @@ class AllergenType
     {
         if (!$this->users->contains($user)) {
             $this->users->add($user);
-            $user->setAllergen($this);
+            $user->addAllergenType($this);
         }
 
         return $this;
@@ -99,14 +69,37 @@ class AllergenType
     public function removeUser(User $user): static
     {
         if ($this->users->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getAllergen() === $this) {
-                $user->setAllergen(null);
-            }
+            $user->removeAllergenType($this);
         }
 
         return $this;
     }
 
+    /**
+     * @return Collection<int, Recipe>
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipe $recipe): static
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes->add($recipe);
+            $recipe->addAllergenType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipe $recipe): static
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            $recipe->removeAllergenType($this);
+        }
+
+        return $this;
+    }
 
 }

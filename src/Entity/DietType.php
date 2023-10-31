@@ -18,16 +18,16 @@ class DietType
     #[ORM\Column(length: 255)]
     private ?string $type = null;
 
-    #[ORM\OneToMany(mappedBy: 'diet', targetEntity: Recipe::class)]
-    private Collection $recipes;
-
-    #[ORM\OneToMany(mappedBy: 'diet', targetEntity: User::class)]
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'dietType')]
     private Collection $users;
+
+    #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'dietType')]
+    private Collection $recipes;
 
     public function __construct()
     {
-        $this->recipes = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->recipes = new ArrayCollection();
     }
 
 
@@ -49,36 +49,6 @@ class DietType
     }
 
     /**
-     * @return Collection<int, Recipe>
-     */
-    public function getRecipes(): Collection
-    {
-        return $this->recipes;
-    }
-
-    public function addRecipe(Recipe $recipe): static
-    {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes->add($recipe);
-            $recipe->setDiet($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecipe(Recipe $recipe): static
-    {
-        if ($this->recipes->removeElement($recipe)) {
-            // set the owning side to null (unless already changed)
-            if ($recipe->getDiet() === $this) {
-                $recipe->setDiet(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, User>
      */
     public function getUsers(): Collection
@@ -90,7 +60,7 @@ class DietType
     {
         if (!$this->users->contains($user)) {
             $this->users->add($user);
-            $user->setDiet($this);
+            $user->addDietType($this);
         }
 
         return $this;
@@ -99,10 +69,34 @@ class DietType
     public function removeUser(User $user): static
     {
         if ($this->users->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getDiet() === $this) {
-                $user->setDiet(null);
-            }
+            $user->removeDietType($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recipe>
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipe $recipe): static
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes->add($recipe);
+            $recipe->addDietType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipe $recipe): static
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            $recipe->removeDietType($this);
         }
 
         return $this;

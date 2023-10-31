@@ -43,14 +43,24 @@ class Recipe
     #[ORM\Column]
     private ?bool $isAccessible = null;
 
-    #[ORM\ManyToOne(inversedBy: 'recipes')]
-    private ?Score $note = null;
+    #[ORM\ManyToMany(targetEntity: AllergenType::class, inversedBy: 'recipes')]
+    #[ORM\JoinTable(name: 'recipe_allergen_type')]
+    private Collection $allergenType;
 
-    #[ORM\ManyToOne(inversedBy: 'recipes')]
-    private ?AllergenType $allergen = null;
+    #[ORM\ManyToMany(targetEntity: DietType::class, inversedBy: 'recipes')]
+    #[ORM\JoinTable(name: 'recipe_diet_type')]
+    private Collection $dietType;
 
-    #[ORM\ManyToOne(inversedBy: 'recipes')]
-    private ?DietType $diet = null;
+    #[ORM\ManyToMany(targetEntity: Score::class, inversedBy: 'recipes')]
+    #[ORM\JoinTable(name: 'recipe_score')]
+    private Collection $note;
+
+    public function __construct()
+    {
+        $this->allergenType = new ArrayCollection();
+        $this->dietType = new ArrayCollection();
+        $this->note = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -165,41 +175,76 @@ class Recipe
         return $this;
     }
 
-    public function getNote(): ?Score
+    /**
+     * @return Collection<int, AllergenType>
+     */
+    public function getAllergenType(): Collection
+    {
+        return $this->allergenType;
+    }
+
+    public function addAllergenType(AllergenType $allergenType): static
+    {
+        if (!$this->allergenType->contains($allergenType)) {
+            $this->allergenType->add($allergenType);
+        }
+
+        return $this;
+    }
+
+    public function removeAllergenType(AllergenType $allergenType): static
+    {
+        $this->allergenType->removeElement($allergenType);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DietType>
+     */
+    public function getDietType(): Collection
+    {
+        return $this->dietType;
+    }
+
+    public function addDietType(DietType $dietType): static
+    {
+        if (!$this->dietType->contains($dietType)) {
+            $this->dietType->add($dietType);
+        }
+
+        return $this;
+    }
+
+    public function removeDietType(DietType $dietType): static
+    {
+        $this->dietType->removeElement($dietType);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Score>
+     */
+    public function getNote(): Collection
     {
         return $this->note;
     }
 
-    public function setNote(?Score $note): static
+    public function addNote(Score $note): static
     {
-        $this->note = $note;
+        if (!$this->note->contains($note)) {
+            $this->note->add($note);
+        }
 
         return $this;
     }
 
-    public function getAllergen(): ?AllergenType
+    public function removeNote(Score $note): static
     {
-        return $this->allergen;
-    }
-
-    public function setAllergen(?AllergenType $allergen): static
-    {
-        $this->allergen = $allergen;
+        $this->note->removeElement($note);
 
         return $this;
     }
-
-    public function getDiet(): ?DietType
-    {
-        return $this->diet;
-    }
-
-    public function setDiet(?DietType $diet): static
-    {
-        $this->diet = $diet;
-
-        return $this;
-    }
-
 
 }

@@ -37,11 +37,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
-    #[ORM\ManyToOne(inversedBy: 'users')]
-    private ?AllergenType $allergen = null;
+    #[ORM\ManyToMany(targetEntity: AllergenType::class, inversedBy: 'users')]
+    private Collection $allergenType;
 
-    #[ORM\ManyToOne(inversedBy: 'users')]
-    private ?DietType $diet = null;
+    #[ORM\ManyToMany(targetEntity: DietType::class, inversedBy: 'users')]
+    private Collection $dietType;
+
+    public function __construct()
+    {
+        $this->allergenType = new ArrayCollection();
+        $this->dietType = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -138,29 +144,52 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getAllergen(): ?AllergenType
+    /**
+     * @return Collection<int, AllergenType>
+     */
+    public function getAllergenType(): Collection
     {
-        return $this->allergen;
+        return $this->allergenType;
     }
 
-    public function setAllergen(?AllergenType $allergen): static
+    public function addAllergenType(AllergenType $allergenType): static
     {
-        $this->allergen = $allergen;
+        if (!$this->allergenType->contains($allergenType)) {
+            $this->allergenType->add($allergenType);
+        }
 
         return $this;
     }
 
-    public function getDiet(): ?DietType
+    public function removeAllergenType(AllergenType $allergenType): static
     {
-        return $this->diet;
-    }
-
-    public function setDiet(?DietType $diet): static
-    {
-        $this->diet = $diet;
+        $this->allergenType->removeElement($allergenType);
 
         return $this;
     }
 
+    /**
+     * @return Collection<int, DietType>
+     */
+    public function getDietType(): Collection
+    {
+        return $this->dietType;
+    }
+
+    public function addDietType(DietType $dietType): static
+    {
+        if (!$this->dietType->contains($dietType)) {
+            $this->dietType->add($dietType);
+        }
+
+        return $this;
+    }
+
+    public function removeDietType(DietType $dietType): static
+    {
+        $this->dietType->removeElement($dietType);
+
+        return $this;
+    }
 
 }

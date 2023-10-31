@@ -18,7 +18,7 @@ class Score
     #[ORM\Column(nullable: true)]
     private ?int $note = null;
 
-    #[ORM\OneToMany(mappedBy: 'note', targetEntity: Recipe::class)]
+    #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'note')]
     private Collection $recipes;
 
 
@@ -56,7 +56,7 @@ class Score
     {
         if (!$this->recipes->contains($recipe)) {
             $this->recipes->add($recipe);
-            $recipe->setNote($this);
+            $recipe->addNote($this);
         }
 
         return $this;
@@ -65,13 +65,11 @@ class Score
     public function removeRecipe(Recipe $recipe): static
     {
         if ($this->recipes->removeElement($recipe)) {
-            // set the owning side to null (unless already changed)
-            if ($recipe->getNote() === $this) {
-                $recipe->setNote(null);
-            }
+            $recipe->removeNote($this);
         }
 
         return $this;
     }
+
 
 }
