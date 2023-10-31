@@ -48,6 +48,11 @@ class DietType
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->getType();
+    }
+
     /**
      * @return Collection<int, User>
      */

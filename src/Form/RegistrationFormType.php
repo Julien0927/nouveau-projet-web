@@ -6,6 +6,7 @@ use App\Entity\User;
 /*use App\Entity\AllergenType;
 use App\Entity\DietType;*/
 use PharIo\Manifest\Email;
+use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Text;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -40,28 +41,13 @@ class RegistrationFormType extends AbstractType
                 ],
                     "label" => "E-mail"
             ])
-          /*  ->add('allergen', TextType::class, [
+            ->add('roles', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                    "label" => "Allergènes"
+                    "label" => "Rôle"
             ])
-            ->add('diet', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-                    "label" => "Régime alimentaire"
-            ])
-            
-            ->add('RGPDConsent', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-                "label" => "J'accepte les conditions d'utilisation"
-            ])*/
+
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
