@@ -53,6 +53,20 @@ h2
     color: #F3F3F7
 }
 
+.recipe 
+{
+    background-color: #F3F3F7;
+    border-radius: 10%;
+    border: 3px solid #609A7D;
+    width: 85%;
+    height: 100%;
+
+}
+
+.recipe h1
+{
+    color: #DC9A7C;
+}
 
 .btn 
 {

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 /*use App\Entity\AllergenType;
 use App\Entity\DietType;*/
 use PharIo\Manifest\Email;
@@ -12,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -41,9 +43,14 @@ class RegistrationFormType extends AbstractType
                 ],
                     "label" => "E-mail"
             ])
-            ->add('roles', TextType::class, [
+            ->add('roles', CollectionType::class, [
+                'entry_type' => TextType::class, // Le type des éléments dans le tableau (ici, TextType)
+                'allow_add' => true, // Permet d'ajouter de nouveaux éléments au tableau
+                'allow_delete' => true, // Permet de supprimer des éléments du tableau
+                'entry_options' => [
                 'attr' => [
                     'class' => 'form-control'
+                ],
                 ],
                     "label" => "Rôle"
             ])

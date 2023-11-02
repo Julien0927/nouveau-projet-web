@@ -4,6 +4,7 @@
 
 {% block body %}
     <h1 class="title d-flex justify-content-center " >Cabinet Sandrine Coupart</h1>
+    <hr>
     <div class="container mt-5">
         <div class="row g-5">
             <section class="col-md-6">
@@ -31,10 +32,14 @@
     </div>
     <div class="container mt-5">
         <div class="row">
-            <h2 class="d-flex justify-content-center">MES RECETTES</h2>
+            <h2 class="d-flex justify-content-center">RECETTES</h2>
+            <hr>
             <div class="col-6">
-                <p class="text-center">Lorem ipsum dolor sit amet</p>
+                {% include "_partials/_recipes.html.twig"%}
+
             </div>
         </div>
     </div>
+
+
 {% endblock %}

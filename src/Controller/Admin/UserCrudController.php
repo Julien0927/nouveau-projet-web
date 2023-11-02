@@ -9,8 +9,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Text;
-use Symfony\Component\Form\Extension\Core\Type\Field;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 class UserCrudController extends AbstractCrudController
 {
@@ -25,10 +26,8 @@ class UserCrudController extends AbstractCrudController
         return [
             TextField::new('firstname', 'Prénom'),
             TextField::new('lastname', 'Nom'),
-            TextField::new("password", 'Mot de passe')
-                ->setFormType(PasswordType::class)
-                ->setFormTypeOption('mapped', false),
             EmailField::new('email', 'E-mail'),
+            TextField::new("password", 'Mot de passe'),
             AssociationField::new('allergenType', 'Allergènes'),
             AssociationField::new('dietType', 'Régimes alimentaires'),
             ArrayField::new('roles', 'Rôle'),
