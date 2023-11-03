@@ -68,6 +68,35 @@ h2
     color: #DC9A7C;
 }
 
+.mentions h1
+{
+    background-color: #DC9A7C;
+    color: #F3F3F7;
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-weight: 600;
+    border: #609A7D 3px solid;
+    border-radius: 20%;
+    width: 50%;
+}
+
+.mentions li
+{
+    font-family: 'Noto sans', sans-serif;
+    font-size: 1.5em;
+}
+.mentions ul li
+{
+    font-family: 'Noto sans', sans-serif;
+    font-size: 1em;
+}
+
+.mentions h3
+{
+    text-transform: uppercase;
+    font-family: 'Noto sans', sans-serif;
+    font-size: 1em;
+}
+
 .btn 
 {
     background-color: #0C0920;

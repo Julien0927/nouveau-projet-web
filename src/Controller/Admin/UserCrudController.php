@@ -21,13 +21,16 @@ class UserCrudController extends AbstractCrudController
     }
 
     
+
+    
    public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('firstname', 'Prénom'),
             TextField::new('lastname', 'Nom'),
             EmailField::new('email', 'E-mail'),
-            TextField::new("password", 'Mot de passe'),
+            TextField::new("password", 'Mot de passe')
+                ->setFormType(\Symfony\Component\Form\Extension\Core\Type\PasswordType::class),
             AssociationField::new('allergenType', 'Allergènes'),
             AssociationField::new('dietType', 'Régimes alimentaires'),
             ArrayField::new('roles', 'Rôle'),

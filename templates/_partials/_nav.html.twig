@@ -21,24 +21,27 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ path('app_login')}}">Connexion</a>
             </li>
-           <!-- <li class="nav-item">
+          {% endif %}
+           <!--<li class="nav-item">
               <a class="nav-link" href="{#{{ path('app_register')}}#}">Inscription</a>
             </li>-->
-          {% endif %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+              <a class="nav-link active" aria-current="page" href="{{ path('app_main')}}">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Recettes</a>
+              <a class="nav-link active" aria-current="page" href="{{ path('app_recipe')}}">Recettes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link active" aria-current="page" href="{{ path('app_service')}}">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Mentions légales</a>
+              <a class="nav-link" href="{{ path('app_contact')}}">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Politique de confidentialité</a>
+              <a class="nav-link" href="{{ path('app_mentions')}}">Mentions légales</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ path('app_privacy')}}">Politique de confidentialité</a>
             </li>
         </ul>
       </div>
