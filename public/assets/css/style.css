@@ -68,6 +68,7 @@ h2
     color: #DC9A7C;
 }
 
+
 .mentions h1
 {
     background-color: #DC9A7C;
@@ -77,6 +78,24 @@ h2
     border: #609A7D 3px solid;
     border-radius: 20%;
     width: 50%;
+}
+.recipe
+{
+    background-color: #DC9A7C;
+    color: #F3F3F7;
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-weight: 600;
+    border: #609A7D 3px solid;
+    border-radius: 20%;
+    width: 50%;
+}
+
+.card-title
+{
+    color: #DC9A7C;
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
 }
 
 .mentions li
@@ -109,3 +128,11 @@ h2
     background-color: #609A7D;
     color: #F3F3F7;
 }
+
+.notes a
+{
+    display: block;
+    color: #F3F3F7;
+    font-size: 12px;
+}
+

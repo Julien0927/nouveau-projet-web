@@ -13,9 +13,9 @@
                     <img class="photo" src="{{ asset('assets/images/photo-Sandrine.jpg')}}">
                     <p class="text-align-center m-4">Je suis Sandrine Coupart, une nutritionniste passionnée par l'art de bien manger pour une vie épanouissante. 
                     Mon objectif est de vous guider vers une meilleure santé, un bien-être durable et une compréhension profonde de la nutrition.
+                        <a class="btn btn-md d-flex justify-content-center mt-5 mx-5" href="{{ path('app_recipe')}}">Voir les recettes</a>
                 </div>
             </section>
-            
             <section class="col-md-6">
                 <div class="services">
                     <h2 class="text-center pt-3">MES SERVICES</h2>
@@ -24,7 +24,7 @@
                      en créant des plans nutritionnels personnalisés adaptés à votre style de vie, à vos besoins et à vos préférences.
                     </p>
                     <div class="d-flex justify-content-end p-3">
-                        <button class="btn" href="{{ path('app_service')}}">Accéder aux services</button>
+                        <a class="btn" href="{{ path('app_service')}}">Accéder aux services</a>
                     </div>
                 </div>
             </section>
@@ -36,7 +36,6 @@
             <hr>
             <div class="col-6">
                 {% include "_partials/_recipes.html.twig"%}
-
             </div>
         </div>
     </div>

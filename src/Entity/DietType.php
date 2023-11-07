@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: DietTypeRepository::class)]
 class DietType
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

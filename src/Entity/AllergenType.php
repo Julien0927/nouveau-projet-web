@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: AllergenTypeRepository::class)]
 class AllergenType
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

@@ -4,17 +4,17 @@
     </div>
     <div class="row">
         <div class="d-flex">
-                <table class="table-primary ">
+                <table class="table-primary :hover ">
                 <tr>
-                    <td><img src="{{ asset('assets/images/temps-64.png')}}" alt="temsp de préparation"></td>
+                    <td><img src="{{ asset('assets/images/temps-64.png')}}" alt="temsp de préparation" title="temsp de préparation"></td>
                     <td><?= $user['email']; ?></td>
                 </tr>
                 <tr>
-                    <td><img src="{{ asset('assets/images/cuisson-64.png')}}" alt="temps de cuisson" class="my-3"></td>
+                    <td><img src="{{ asset('assets/images/cuisson-64.png')}}" alt="temps de cuisson" title="temsp de cuisson" class="my-3"></td>
                     <td><?= $user['alamat']; ?></td>
                 </tr>
                 <tr>
-                    <td><img src="{{ asset('assets/images/repos.png')}}" alt="temps de repos" class="mt-3 pl-5"></td>
+                    <td><img src="{{ asset('assets/images/repos.png')}}" alt="temps de repos" title="temps de repos" class="mt-3 pl-5"></td>
                     <td><?= $user['alamat']; ?></td>
                 </tr>
                 </table>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-               <button class="btn d-flex justify-content-md-end mt-3">Voir la recette</button>
+               <a class="btn d-flex justify-content-md-end mt-3" href="#">Voir la recette</a>
         </div>
     </div>
 </div>
