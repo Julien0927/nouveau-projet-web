@@ -63,23 +63,15 @@ h2
 
 }
 
-.recipe h1
+.connexion
 {
-    color: #DC9A7C;
-}
-
-
-.mentions h1
-{
-    background-color: #DC9A7C;
+    background-color: #609A7D;
     color: #F3F3F7;
-    font-family: 'Baloo Bhaina 2', sans-serif;
-    font-weight: 600;
-    border: #609A7D 3px solid;
-    border-radius: 20%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
 }
-.recipe
+
+.titleRecipe
 {
     background-color: #DC9A7C;
     color: #F3F3F7;
@@ -96,6 +88,27 @@ h2
     font-family: 'Baloo Bhaina 2', sans-serif;
     font-weight: 600;
     font-size: 1.5em;
+}
+
+.recipe h1
+{
+    color: #DC9A7C;
+}
+
+.allRecipe img
+{
+    height: 55%;
+    width: 60%;
+}
+.mentions h1
+{
+    background-color: #DC9A7C;
+    color: #F3F3F7;
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-weight: 600;
+    border: #609A7D 3px solid;
+    border-radius: 20%;
+    width: 50%;
 }
 
 .mentions li

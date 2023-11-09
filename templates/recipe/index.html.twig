@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="d-flex justify-content-center mt-5">
-<h1 class="recipe rounded text-center pt-2">Recettes</h1>
+<h1 class="titleRecipe rounded text-center pt-2">Recettes</h1>
 </div>
 <div class="container d-flex justify-content-center col-md-12 mt-5">
     <div class="row gap-5 ">
@@ -12,13 +12,19 @@
             {% for recipe in recipes %}
             <div class="card mb-3" style="max-width: 600px;">
                 <div class="row g-0">
-                    <div class="col-md-7">
+                    <div class="col-md-7 mt-auto">
                         <div class="card-body">
                             <h5 class="card-title">{{recipe.title}}</h5>
                             <p class="card-text">{{recipe.description}}</p>
-                            <p class="card-text">{{recipe.ingredients}}</p>
-                            <p class="card-text">{{recipe.steps}}</p>
-                            <a href="#" class="btn px-5">Recette</a>
+
+                        {% for allergenType in recipe.allergenType%}
+                            <p class="card-text fw-bold">Allergènes : {{allergenType.type}}</p>
+                        {% endfor %}
+
+                        {% for dietType in recipe.dietType%}
+                            <p class="card-text fw-bold color-text-success">Régimes : {{dietType.type}}</p>
+                        {% endfor %}
+                            <a href="{{ path('app_fullrecipe', {'id': recipe.id})}}" class="btn px-5 mt-3">Voir</a>
                         </div>
                     </div>
                     <div class="col-md-5">

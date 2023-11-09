@@ -5,7 +5,7 @@
 {% block body %}
 <section class="container my-3">
     <div class="row">
-        <div class="col">
+        <div class="col-md-12">
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -16,8 +16,10 @@
                         Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
                     </div>
                 {% endif %}
-
-                <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+            <div class="d-flex justify-content-center">
+                <h1 class="titleRecipe rounded text-center font-weight-normal pt-2">Connexion</h1>
+            </div>
+            <div>
                 <label for="inputEmail">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3" autocomplete="email" required autofocus>
                 <label for="inputPassword">Mot de passe</label>
@@ -27,13 +29,12 @@
                     value="{{ csrf_token('authenticate') }}"
                 >
 
+            </div>
                 <button class="btn btn-lg btn-primary" type="submit">
                     Connexion
-                </button>
+                        </button>
             </form>
         </div>
     </div>
 </section>
-
-
 {% endblock %}
