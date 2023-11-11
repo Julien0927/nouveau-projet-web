@@ -53,6 +53,14 @@ h2
     color: #F3F3F7
 }
 
+.mainServices
+{
+    background-color: #609A7D;
+    color: #F3F3F7;
+    border: 3px solid #609A7D;
+    height: auto;
+    width: 100%;
+}
 .recipe 
 {
     background-color: #F3F3F7;
@@ -149,3 +157,37 @@ h2
     font-size: 12px;
 }
 
+.gallery-wrapper {
+    background-color: #dbdbdb;
+    box-sizing: border-box;
+    height: 185px;
+    overflow: hidden;
+  }
+  
+  /*Galerie photo accueil*/
+  .gallery-scroll {
+    box-sizing: border-box;
+    height: 200px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .gallery {
+    background-color: #dbdbdb;
+    display: flex;
+    box-sizing: border-box;
+    width: max-content;
+    height: 185px;
+    padding: 0px 8.5px;
+  }
+  
+  .item {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 16px 8.5px;
+  }
+  
+  .item img {
+    display: block;
+    height: 100%;
+  }

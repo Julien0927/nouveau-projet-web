@@ -55,7 +55,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Allergènes', 'fas fa-allergies', AllergenType::class);
         yield MenuItem::linkToCrud('Régimes alimentaires', 'fas fa-utensils', DietType::class);
         yield MenuItem::linkToLogout('Déconnexion', 'fas fa-sign-out-alt');
-        yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', '');
+        yield MenuItem::linkToRoute('Retour au site', 'fas fa-home', 'app_main');
     }
 }
 

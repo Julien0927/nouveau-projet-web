@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="d-flex justify-content-center mt-5">
-<h1 class="titleRecipe rounded text-center pt-2">Recettes</h1>
+    <h1 class="titleRecipe rounded text-center pt-2">Recettes</h1>
 </div>
 <div class="container d-flex justify-content-center col-md-12 mt-5">
     <div class="row gap-5 ">
@@ -15,7 +15,7 @@
                     <div class="col-md-7 mt-auto">
                         <div class="card-body">
                             <h5 class="card-title">{{recipe.title}}</h5>
-                            <p class="card-text">{{recipe.description}}</p>
+                            <p class="card-text">{{ recipe.description|striptags }}</p>
 
                         {% for allergenType in recipe.allergenType%}
                             <p class="card-text fw-bold">Allergènes : {{allergenType.type}}</p>

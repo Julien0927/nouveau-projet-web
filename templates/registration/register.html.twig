@@ -19,13 +19,13 @@
                     label: 'Password'
                 }) }}
             </fieldset>
-            {#<fieldset class="mb-3">
+            <fieldset class="mb-3">
                 <legend>Informations personnelles</legend>
-                {{ form_row(registrationForm.allergen) }}
-                {{ form_row(registrationForm.diet) }}
+                {{ form_row(registrationForm.allergenType) }}
+                {{ form_row(registrationForm.dietType) }}
             </fieldset>
 
-            {{ form_row(registrationForm.RGPDConsent) }}#}
+            {#{{ form_row(registrationForm.RGPDConsent) }}#}
 
             <button type="submit" class="btn my-3">Inscrire</button>
             <a href="{{ path('app_login')}}" class="btn">Me connecter</a>

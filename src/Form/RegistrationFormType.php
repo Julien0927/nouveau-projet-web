@@ -4,8 +4,9 @@ namespace App\Form;
 
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
-/*use App\Entity\AllergenType;
-use App\Entity\DietType;*/
+use App\Entity\AllergenType;
+use App\Entity\DietType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use PharIo\Manifest\Email;
 use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Text;
 use Symfony\Component\Form\AbstractType;
@@ -72,6 +73,28 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
                     "label" => "Mot de passe"
+            ])
+            ->add('allergenType', EntityType::class, [
+                'class' => AllergenType::class,
+                'choice_label' => 'type',
+                'multiple' => true,
+                'expanded' => true,
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                
+                    "label" => "Allergènes"
+            ])
+            ->add('dietType', EntityType::class, [
+                'class' => DietType::class,
+                'choice_label' => 'type',
+                'multiple' => true,
+                'expanded' => true,
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                
+                    "label" => "Régimes"
             ])
         ;
     }

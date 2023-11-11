@@ -21,6 +21,18 @@ class RecipeRepository extends ServiceEntityRepository
         parent::__construct($registry, Recipe::class);
     }
 
+    public function findByDietType($dietType, $orderBy = null, $limit = null, $offset = null)
+    {
+    return $this->createQueryBuilder('r')
+        ->join('r.dietType', 'd')
+        ->where('d.id = :dietType')
+        ->setParameter('dietType', $dietType)
+        ->orderBy('r.id', 'DESC')
+        ->getQuery()
+        ->getResult();
+}
+
+
 //    /**
 //     * @return Recipe[] Returns an array of Recipe objects
 //     */

@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FullRecipeController extends AbstractController
 {
+
     #[Route('/fullrecipe/{id}', name: 'app_fullrecipe')]
     public function index(EntityManagerInterface $entityManager, $id): Response
     {
@@ -22,6 +23,7 @@ class FullRecipeController extends AbstractController
         }
         return $this->render('fullrecipe/index.html.twig', [
             'recipe' => $recipe,
+            'linesArray' => $this->tools->LinesToArray($recipe->getDescription()),
         ]);
     }
 }
