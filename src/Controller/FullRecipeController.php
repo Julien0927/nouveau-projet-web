@@ -3,10 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Recipe;
+use App\Entity\Score;
+use App\Repository\RecipeRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class FullRecipeController extends AbstractController
 {
@@ -23,7 +28,7 @@ class FullRecipeController extends AbstractController
         }
         return $this->render('fullrecipe/index.html.twig', [
             'recipe' => $recipe,
-            'linesArray' => $this->tools->LinesToArray($recipe->getDescription()),
         ]);
     }
 }
+

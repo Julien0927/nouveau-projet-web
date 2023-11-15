@@ -1,8 +1,13 @@
 
  <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid navbar navColor">
-    <a class="navbar-brand mx-3" href="{{ path('app_main')}}"><img src="{{ asset('assets/images/icons8-60.png')}}"></a>
+   <div class="container-fluid navbar navColor">
+     <a class="navbar-brand mx-3" href="{{ path('app_main')}}"><img src="{{ asset('assets/images/icons8-60.png')}}"></a>
+    <div class="d-block">
     <h1 class="d-flex text-align-center">Diététicienne Nutritionniste</h1>
+      {% if app.user %}
+        <h5 class="d-flex justify-content-center">Bonjour {{ app.user.firstname }} {{ app.user.lastname }}</h5>
+      {% endif %}
+    </div>
     <button class="navbar-toggler mx-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

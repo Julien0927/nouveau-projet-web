@@ -95,7 +95,14 @@ h2
     color: #DC9A7C;
     font-family: 'Baloo Bhaina 2', sans-serif;
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: 2em;
+}
+
+.fullcard-text
+{
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
 }
 
 .recipe h1
@@ -108,6 +115,7 @@ h2
     height: 55%;
     width: 60%;
 }
+
 .mentions h1
 {
     background-color: #DC9A7C;
@@ -140,7 +148,8 @@ h2
 .btn 
 {
     background-color: #0C0920;
-    font-family: 'Baloo Bhaina', cursive;
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-weight: 800;
     color: #F3F3F7;
 }
 

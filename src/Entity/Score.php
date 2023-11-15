@@ -21,6 +21,9 @@ class Score
     #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'note')]
     private Collection $recipes;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Opinion = null;
+
 
     public function __construct()
     {
@@ -71,5 +74,16 @@ class Score
         return $this;
     }
 
+    public function getOpinion(): ?string
+    {
+        return $this->Opinion;
+    }
+
+    public function setOpinion(?string $Opinion): static
+    {
+        $this->Opinion = $Opinion;
+
+        return $this;
+    }
 
 }

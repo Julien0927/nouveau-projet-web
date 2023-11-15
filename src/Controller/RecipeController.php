@@ -4,11 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Recipe;
 use App\Entity\User;
-use Symfony\Component\Security\Core\Security;
+use App\Entity\Score;
 use App\Repository\RecipeRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class RecipeController extends AbstractController
 {
@@ -17,6 +21,24 @@ class RecipeController extends AbstractController
     {
         //Récupérer l'utilisateur connecté
         $user = $this->getUser();
+
+        // Vérifiez si l'utilisateur est connecté et a un rôle admin
+        if($security->isGranted('ROLE_ADMIN')) {
+            // Récupérer toutes les recettes
+            $recipes = $recipeRepository->findBy([], ['id' => 'DESC']);
+            return $this->render('recipe/index.html.twig', [
+                'recipes' => $recipes,
+            ]);
+        }
+
+        // Vérifiez si l'utilisateur est connecté et n'a pas de régime défini
+        if ($security->isGranted('ROLE_USER') ) {
+            // Récupérer toutes les recettes
+            $recipes = $recipeRepository->findBy([], ['id' => 'DESC']);
+            return $this->render('recipe/index.html.twig', [
+                'recipes' => $recipes,
+            ]);
+        }
         
         // Vérifiez si l'utilisateur est connecté et a un régime défini        
         if ($security->isGranted('ROLE_USER') && $user->getDietType()) {
@@ -38,4 +60,6 @@ class RecipeController extends AbstractController
             //'recipes' => $recipeRepository->findBy([], ['id' => 'DESC']),
         ]);
     }
-}
+        //partie note
+}   
+

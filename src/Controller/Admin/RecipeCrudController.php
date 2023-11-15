@@ -31,7 +31,9 @@ class RecipeCrudController extends AbstractCrudController
             IntegerField::new('preparationTime', 'Temps de préparation'),
             IntegerField::new('cookingTime', 'Temps de cuisson'),
             IntegerField::new('timeOfRest', 'Temps de repos'),
-            ImageField::new('picture', 'Image')->setBasePath('assets/images/recipes/')->setUploadDir('public/assets/images/recipes'),
+            ImageField::new('picture', 'Image')
+                ->setBasePath('assets/images/Recipes/')
+                ->setUploadDir('public/assets/images/Recipes'),
             AssociationField::new('allergenType', 'Allergènes'),
             AssociationField::new('dietType', 'Régimes alimentaires'),
             BooleanField::new("isAccessible", 'Uniquement pour les patients'),

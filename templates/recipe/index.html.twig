@@ -18,7 +18,7 @@
                             <p class="card-text">{{ recipe.description|striptags }}</p>
 
                         {% for allergenType in recipe.allergenType%}
-                            <p class="card-text fw-bold">Allergènes : {{allergenType.type}}</p>
+                            <p class="card-text fw-bold">Risques allergènes : {{allergenType.type}}</p>
                         {% endfor %}
 
                         {% for dietType in recipe.dietType%}

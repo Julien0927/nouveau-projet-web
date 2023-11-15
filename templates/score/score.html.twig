@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis recette{% endblock %}
+
+{% block body %}
+          <div id="recipeOpinion">
+            <div class="fullcard form-floating">
+              <!--<input type="hidden" id="recipe.id" value="{#{{recipe.id}}#}">-->
+              {{ form_start(scoreForm) }}
+            </div>
+            <div class="d-flex justify-content-around mt-4">
+              <div class="d-block">
+                <p>Vous avez testé la recette : </p>
+                <p>{{ recipe.title }}</p>
+              </div>
+              {{ form_row(scoreForm.opinion) }}
+              {{ form_row(scoreForm.note) }}
+
+              
+            </div>
+            {{ form_end(scoreForm) }}
+          </div>
+
+{% endblock %}
