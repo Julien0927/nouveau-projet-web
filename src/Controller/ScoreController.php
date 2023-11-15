@@ -35,16 +35,23 @@ class ScoreController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             
             $note->addRecipe($recipe);
-            dump($note);
+
             $entityManager->persist($note);
             $entityManager->flush();
 
+            if ($request->isXmlHttpRequest()) {
+                return new JsonResponse([
+                    'code' => 200,
+                    'message' => 'Votre note a bien été enregistrée'
+                ], 200);
+            }
+
             return $this->redirectToRoute('app_recipe');
         }
+        
         return $this->render('score/score.html.twig', [
             'scoreForm' => $form->createView(),
             'recipe' => $recipe
         ]);
     }
-
 }

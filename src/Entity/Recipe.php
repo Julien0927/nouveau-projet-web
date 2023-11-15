@@ -248,17 +248,20 @@ class Recipe
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     //Fonction pour calculer la moyenne des notes
     public function getAverageNote(): ?float
     {
     $totalNotes = 0;
-    $numOfNotes = count($this->notes);
+    $numOfNotes = count($this->note);
 
     if ($numOfNotes === 0) {
         return null;
     }
 
-    foreach ($this->notes as $note) {
+    foreach ($this->note as $note) {
         $totalNotes += $note->getNote();
     }
 

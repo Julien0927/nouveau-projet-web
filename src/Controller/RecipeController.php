@@ -32,7 +32,7 @@ class RecipeController extends AbstractController
         }
 
         // Vérifiez si l'utilisateur est connecté et n'a pas de régime défini
-        if ($security->isGranted('ROLE_USER') ) {
+        if ($security->isGranted('ROLE_USER') && !$user->getDietType() == null ) {
             // Récupérer toutes les recettes
             $recipes = $recipeRepository->findBy([], ['id' => 'DESC']);
             return $this->render('recipe/index.html.twig', [
@@ -47,7 +47,6 @@ class RecipeController extends AbstractController
            $recipes = $recipeRepository->findByDietType($user->getDietType(), ['id' => 'DESC']);
 
             // Si oui, récupérer toutes les recettes
-            //$recipes = $recipeRepository->findBy([], ['id' => 'DESC']);
             return $this->render('recipe/index.html.twig', [
                 'recipes' => $recipes,
             ]);
@@ -57,9 +56,7 @@ class RecipeController extends AbstractController
 
             return $this->render('recipe/index.html.twig', [
             'recipes' => $recipes,
-            //'recipes' => $recipeRepository->findBy([], ['id' => 'DESC']),
         ]);
     }
-        //partie note
 }   
 
