@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -32,6 +33,7 @@ class ScoreController extends AbstractController
         $form = $this->createForm(ScoreFormType::class, $note);
         $form->handleRequest($request);
         
+  
         if ($form->isSubmitted() && $form->isValid()) {
             
             $note->addRecipe($recipe);
@@ -39,19 +41,22 @@ class ScoreController extends AbstractController
             $entityManager->persist($note);
             $entityManager->flush();
 
-            if ($request->isXmlHttpRequest()) {
-                return new JsonResponse([
-                    'code' => 200,
-                    'message' => 'Votre note a bien été enregistrée'
-                ], 200);
+            $response = [
+                'code' => 200,
+                'message' => 'Votre message a bien été enregistrée'
+            ];
+            
+            if($request->isXmlHttpRequest()){
+                return new JsonResponse($response, 200);
             }
-
+            $this->addFlash('success', $response['message']);
             return $this->redirectToRoute('app_recipe');
+            
         }
         
         return $this->render('score/score.html.twig', [
-            'scoreForm' => $form->createView(),
-            'recipe' => $recipe
+                'scoreForm' => $form->createView(),
+                'recipe' => $recipe
         ]);
     }
 }

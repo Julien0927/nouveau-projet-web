@@ -200,3 +200,14 @@ h2
     display: block;
     height: 100%;
   }
+
+  .opinionRecipe  h5
+  {
+    color:#DC9A7C
+  }
+
+  .note
+  {
+    color: #609A7D;
+  }
+

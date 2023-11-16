@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Recipe;
 use App\Entity\Score;
 use App\Repository\RecipeRepository;
+use App\Repository\ScoreRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,7 +21,7 @@ class FullRecipeController extends AbstractController
     public function index(EntityManagerInterface $entityManager, $id): Response
     {
         $recipe = $entityManager->getRepository(Recipe::class)->find($id);
-
+       
         if(!$recipe) {
             throw $this->createNotFoundException(
                 'Recette non trouvée'
@@ -31,4 +32,3 @@ class FullRecipeController extends AbstractController
         ]);
     }
 }
-

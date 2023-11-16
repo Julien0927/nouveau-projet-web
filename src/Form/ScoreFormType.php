@@ -23,19 +23,19 @@ class ScoreFormType extends AbstractType
                     'label' => 'Laissez votre avis',
                     'attr' => [
                         'rows' => '6',
-                        'cols' => '20',
-                        'placeholder' => 'Votre avis',
+                        'cols' => '10',
+                        'placeholder' => 'Saisissez votre avis',
                         'class' => 'form-control'
                     ]
                 ])
             ->add('note', ChoiceType::class, 
                 [
-                    'label' => 'Sélectionnez une note',
                     'attr' => [
                         'placeholder' => 'Votre note',
                         'class' => 'form-control'
                     ],
                         'choices' => [
+                            'Donnez une note' => null,
                             '1-Je n\'ai pas aimé' => '1',
                             '2-Moyen' => '2',
                             '3-Bon' => '3',

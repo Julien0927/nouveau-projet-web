@@ -6,7 +6,9 @@ use App\Entity\Recipe;
 use App\Entity\User;
 use App\Entity\Score;
 use App\Repository\RecipeRepository;
+use App\Repository\ScoreRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Console\EntityManagerProvider;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,8 +19,9 @@ use Symfony\Component\HttpFoundation\Request;
 class RecipeController extends AbstractController
 {
     #[Route('/recipe', name: 'app_recipe')]
-    public function index(RecipeRepository $recipeRepository, Security $security): Response
+    public function index(RecipeRepository $recipeRepository, Security $security, ScoreRepository $scoreRepository): Response
     {
+
         //Récupérer l'utilisateur connecté
         $user = $this->getUser();
 
@@ -53,7 +56,7 @@ class RecipeController extends AbstractController
         } else {
             // Si non, récupérer les recettes non-accessibles uniquement
             $recipes = $recipeRepository->findBy(['isAccessible' => false], ['id' => 'DESC']);}
-
+            
             return $this->render('recipe/index.html.twig', [
             'recipes' => $recipes,
         ]);
