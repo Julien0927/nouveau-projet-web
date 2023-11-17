@@ -211,3 +211,11 @@ h2
     color: #609A7D;
   }
 
+legend
+{
+    background-color: #DC9A7C;
+    background-size: 50px 50px;
+    color: #F3F3F7;
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-weight: 600;
+}

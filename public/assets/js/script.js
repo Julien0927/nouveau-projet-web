@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.ajax-form');
     const ajaxMessages = document.getElementById('ajax-messages');
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const formData = new FormData(form);

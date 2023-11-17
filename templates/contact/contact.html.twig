@@ -5,23 +5,23 @@
 {% block body %}
 
 <section class="container">
+    <div class="d-flex justify-content-center mb-3">
+        <h1 class="titleRecipe rounded text-center">Contact</h1>
+    </div>
     <div class="row">
-        <div class=col>
-        <h1>Contact</h1>
-
-        {{ form_start(ContactForm) }}
+        <div class="col-lg-12 col-md-6">
+        {{ form_start(contactForm) }}
             <fieldset class="mb-3">
-                {{ form_row(ContactForm.firstname) }}
-                {{ form_row(ContactForm.lastname) }}
-                {{ form_row(ContactForm.email) }}
-                {{ form_row(ContactForm.message, {
+                {{ form_row(contactForm.firstname) }}
+                {{ form_row(contactForm.lastname) }}
+                {{ form_row(contactForm.email) }}
+                {{ form_row(contactForm.message, {
                     label: 'Message'
                 }) }}
             </fieldset>
 
-            <button type="submit" class="btn my-3">Inscrire</button>
-            <a href="{{ path('app_main')}}" class="btn">Me connecter</a>
-        {{ form_end(ContactForm) }}
+            <a href="{{ path('app_main')}}" class="btn">Envoyer</a>
+        {{ form_end(contactForm) }}
         </div>
     </div>
 </section>

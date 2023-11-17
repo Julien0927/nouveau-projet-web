@@ -53,16 +53,15 @@
           <h5>Note globale : {{ recipe.getAverageNote()|default('Aucune note') }}/5</h5>
         </div>
         <div class="d-flex justify-content-center">
-          <div class="d-block mt-3">
-            <fieldset>
-            <h5>Commentaire(s) :</h5>
-            {%for score in recipe.getNote() %}
-                <p>{{ score.getOpinion()|default('Aucune note') }}</p>
-            {%endfor%}
-            </fieldset>
-          </div>
+            <form class="d-block mt-2 mb-3">
+              <fieldset class="text-center">
+                <legend class="rounded">Commentaire(s)</legend>
+                {%for score in recipe.getNote() %}
+                    <label>"{{ score.getOpinion()|default('Aucun commentaire') }}"</label><br>
+                {%endfor%}
+              </fieldset>
+            </form>
         </div>
-
       </div>
     </div>
   </div>
