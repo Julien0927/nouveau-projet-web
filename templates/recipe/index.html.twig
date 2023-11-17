@@ -17,11 +17,13 @@
                             <p class="card-text">{{ recipe.description|striptags }}</p>
 
                         {% for allergenType in recipe.allergenType%}
-                            <p class="card-text fw-bold">Risques allergènes : {{allergenType.type|default('Aucune allergènes')}}</p>
+                            <p class="card-text fw-bold">Risques allergènes : 
+                            {{allergenType.type|default('Aucune allergènes')}}</p>
                         {% endfor %}
 
                         {% for dietType in recipe.dietType%}
-                            <p class="card-text fw-bold color-text-success">Régimes : {{dietType.type|default('Aucune régime particuliers')}}</p>
+                            <p class="card-text fw-bold color-text-success">Régimes : 
+                            {{dietType.type|default('Aucune régime particuliers')}}</p>
                         {% endfor %}
                             <a href="{{ path('app_fullrecipe', {'id': recipe.id})}}" class="btn px-5 mt-3">Voir</a>
                         </div>
