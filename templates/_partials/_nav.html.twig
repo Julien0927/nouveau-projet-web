@@ -1,3 +1,5 @@
+ {% set currentPage = app.request.attributes.get('_route') %}
+{% set currentRoute = app.request.attributes.get('_route') %}
 
  <nav class="navbar bg-body-tertiary">
    <div class="container-fluid navbar navColor">
@@ -38,23 +40,23 @@
             </li>
           {% endif %}
 
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{ path('app_main')}}">Accueil</a>
+            <li class="nav-item ">
+              <a class="nav-link {% if currentPage == 'app_main'%}active{%endif%}" href="{{ path('app_main')}}">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{ path('app_recipe')}}">Recettes</a>
+              <a class="nav-link {% if currentPage == 'app_recipe'%}active{%endif%}" href="{{ path('app_recipe')}}">Recettes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{ path('app_service')}}">Services</a>
+              <a class="nav-link {% if currentPage == 'app_service'%}active{%endif%}" href="{{ path('app_service')}}">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ path('app_contact')}}">Contact</a>
+              <a class="nav-link {% if currentPage == 'app_contact'%}active{%endif%}" href="{{ path('app_contact')}}">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ path('app_mentions')}}">Mentions légales</a>
+              <a class="nav-link {% if currentPage == 'app_mentions'%}active{%endif%}" href="{{ path('app_mentions')}}">Mentions légales</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ path('app_privacy')}}">Politique de confidentialité</a>
+              <a class="nav-link {% if currentPage == 'app_privacy'%}active{%endif%}" href="{{ path('app_privacy')}}">Politique de confidentialité</a>
             </li>
         </ul>
       </div>

@@ -9,7 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
-class Recipe
+class Recipe 
 {
 
     #[ORM\Id]
@@ -179,9 +179,9 @@ class Recipe
     /**
      * @return Collection<int, AllergenType>
      */
-    public function getAllergenType(): ?Collection
+    public function getAllergenType(): Collection
     {
-        return $this->allergenType;      
+        return $this->allergenType;
     }
 
     public function addAllergenType(AllergenType $allergenType): static
@@ -191,7 +191,6 @@ class Recipe
         }
 
         return $this;
-
     }
 
     public function removeAllergenType(AllergenType $allergenType): static
@@ -204,7 +203,7 @@ class Recipe
     /**
      * @return Collection<int, DietType>
      */
-    public function getDietType(): ?Collection
+    public function getDietType(): Collection
     {
         return $this->dietType;
     }

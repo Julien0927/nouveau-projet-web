@@ -33,16 +33,6 @@ class RecipeController extends AbstractController
                 'recipes' => $recipes,
             ]);
         }
-
-        // Vérifiez si l'utilisateur est connecté et n'a pas de régime défini
-        if ($security->isGranted('ROLE_USER') && !$user->getDietType() == null ) {
-            // Récupérer toutes les recettes
-            $recipes = $recipeRepository->findBy([], ['id' => 'DESC']);
-            return $this->render('recipe/index.html.twig', [
-                'recipes' => $recipes,
-            ]);
-        }
-        
         // Vérifiez si l'utilisateur est connecté et a un régime défini        
         if ($security->isGranted('ROLE_USER') && $user->getDietType()) {
             
@@ -53,6 +43,17 @@ class RecipeController extends AbstractController
             return $this->render('recipe/index.html.twig', [
                 'recipes' => $recipes,
             ]);
+
+        // Vérifiez si l'utilisateur est connecté et n'a pas de régime défini
+        if ($security->isGranted('ROLE_USER') && !$user->getDietType() == null ) {
+            // Récupérer toutes les recettes
+            $recipes = $recipeRepository->findBy([], ['id' => 'DESC']);
+            return $this->render('recipe/index.html.twig', [
+                'recipes' => $recipes,
+            ]);
+        }
+        
+        
         } else {
             // Si non, récupérer les recettes non-accessibles uniquement
             $recipes = $recipeRepository->findBy(['isAccessible' => false], ['id' => 'DESC']);}
@@ -60,8 +61,6 @@ class RecipeController extends AbstractController
             return $this->render('recipe/index.html.twig', [
             'recipes' => $recipes,
         ]);
-        
     }
-
 }   
 
