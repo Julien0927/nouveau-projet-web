@@ -55,7 +55,7 @@
         <div class="d-flex justify-content-center">
             <form class="d-block mt-2 mb-3">
               <fieldset class="text-center">
-                <legend class="rounded">Commentaire(s)</legend>
+                <legend class="com rounded">Commentaire(s)</legend>
                 {%for score in recipe.getNote() %}
                     <label>"{{ score.getOpinion()|default('Aucun commentaire') }}"</label><br>
                 {%endfor%}

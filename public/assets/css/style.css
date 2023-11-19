@@ -18,7 +18,7 @@
 .title
 {
     color: #609A7D;
-    font-family: 'Reenie Beanie', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     /*font-weight: bold;*/
     font-size: 4em;
 }
@@ -216,7 +216,7 @@ h2
     color: #609A7D;
   }
 
-legend
+.com
 {
     background-color: #DC9A7C;
     background-size: 50px 50px;

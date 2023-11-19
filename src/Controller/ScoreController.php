@@ -43,7 +43,7 @@ class ScoreController extends AbstractController
 
             $response = [
                 'code' => 200,
-                'message' => 'Votre message a bien été enregistrée'
+                'message' => 'Votre commentaire a bien été enregistré'
             ];
             
             if($request->isXmlHttpRequest()){

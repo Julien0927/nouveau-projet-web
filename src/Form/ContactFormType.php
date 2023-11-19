@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Contact;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -48,6 +49,13 @@ class ContactFormType extends AbstractType
                         'cols' => '10',
                         'placeholder' => 'Saisissez votre message',
                         'class' => 'form-control'
+                    ]
+                ])
+                ->add('envoyer', SubmitType::class, 
+                [
+                    'label' => 'Envoyer',
+                    'attr' => [
+                        'class' => 'btn'
                     ]
                 ])
         ;

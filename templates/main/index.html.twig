@@ -3,6 +3,12 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+{% for flashMessage in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
     <h1 class="title d-flex justify-content-center " >Cabinet Sandrine Coupart</h1>
     <hr>
     <div class="container mt-5">

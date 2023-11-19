@@ -17,15 +17,16 @@ class ContactController extends AbstractController
     {
         $contact = new Contact();
         $form = $this->createForm(ContactFormType::class, $contact);
+        
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $contact->addContact($contact);
             $em->persist($contact);
             $em->flush();
 
             $this->addFlash('success', 'Votre message a bien été envoyé');
-            return $this->redirectToRoute('app_contact');
+            return $this->redirectToRoute('app_main');
         }
         return $this->render('contact/contact.html.twig', [
             'contactForm' => $form->createView(),
