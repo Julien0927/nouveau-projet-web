@@ -46,11 +46,11 @@ class Recipe
 
     #[ORM\ManyToMany(targetEntity: AllergenType::class, inversedBy: 'recipes')]
     #[ORM\JoinTable(name: 'recipe_allergen_type')]
-    private Collection $allergenType;
+    private ?Collection $allergenType = null;
 
     #[ORM\ManyToMany(targetEntity: DietType::class, inversedBy: 'recipes')]
     #[ORM\JoinTable(name: 'recipe_diet_type')]
-    private Collection $dietType;
+    private ?Collection $dietType = null;
 
     #[ORM\ManyToMany(targetEntity: Score::class, inversedBy: 'recipes')]
     #[ORM\JoinTable(name: 'recipe_score')]
@@ -179,12 +179,12 @@ class Recipe
     /**
      * @return Collection<int, AllergenType>
      */
-    public function getAllergenType(): Collection
+    public function getAllergenType(): ?Collection
     {
         return $this->allergenType;
     }
 
-    public function addAllergenType(AllergenType $allergenType): static
+    public function addAllergenType(?AllergenType $allergenType): static
     {
         if (!$this->allergenType->contains($allergenType)) {
             $this->allergenType->add($allergenType);
@@ -203,10 +203,14 @@ class Recipe
     /**
      * @return Collection<int, DietType>
      */
-    public function getDietType(): Collection
+    public function getDietType(): ?Collection
     {
+        if($this->dietType === null){
+            $this->dietType = new ArrayCollection();
+        }else {
         return $this->dietType;
     }
+}
 
     public function addDietType(DietType $dietType): static
     {

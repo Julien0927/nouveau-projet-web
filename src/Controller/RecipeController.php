@@ -33,8 +33,8 @@ class RecipeController extends AbstractController
         } else {
             // Si l'utilisateur est un visiteur, récupérer les recettes accessibles uniquement
             $recipes = $recipeRepository->findBy(['isAccessible' => true], ['id' => 'DESC']);
+        
         }
-
         return $this->render('recipe/index.html.twig', [
             'recipes' => $recipes,
         ]);

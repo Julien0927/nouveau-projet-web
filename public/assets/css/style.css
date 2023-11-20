@@ -1,40 +1,48 @@
 .navColor
 {
-    background-color: #609A7D;
+    background-color: #88A9C3;
     color: #F3F3F7;
+}
+
+.navTitle
+{
+    color: #F3F3F7;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 4em;
 }
 
 .navbar-toggler
 {
-    border-color: #0C0920;
+    border-color: #13558D;
     background-color: #F3F3F7
 }
 
 .nav-link
 {
-    color: #DC9A7C;
+    color: #d7888d;
 }
 
 .title
 {
-    color: #609A7D;
-    font-family: 'Noto Sans', sans-serif;
-    /*font-weight: bold;*/
+    color: #13558D;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
     font-size: 4em;
 }
 
 h2
 {
-    color: #DC9A7C;
-    font-family: 'Noto sans', sans-serif;
-    /*font-weight: bold;*/
+    color: #d7888d;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
     font-size: 2em;
 }
 
 .photo
 {
     border-radius: 30%;
-    border: 3px solid #609A7D;
+    border: 3px solid #88A9C3;
     height: 300px;
     width: 250px;
 }
@@ -44,11 +52,11 @@ h2
     background: linear-gradient(
         to top,
         #F3F3F7 81%,
-        #609A7D 81% 82%,
-        #DC9A7C 82%
+        #88A9C3 81% 82%,
+        #d7888d 82%
     );
     border-radius: 10%;
-    border: 3px solid #609A7D;
+    border: 3px solid #88A9C3;
     width: 85%;
     height: 100%;
 }
@@ -60,9 +68,9 @@ h2
 
 .mainServices
 {
-    background-color: #609A7D;
+    background-color: #88A9C3;
     color: #F3F3F7;
-    border: 3px solid #609A7D;
+    border: 3px solid #13558D;
     height: auto;
     width: 100%;
 }
@@ -70,7 +78,7 @@ h2
 {
     background-color: #F3F3F7;
     border-radius: 10%;
-    border: 3px solid #609A7D;
+    border: 3px solid #13558D;
     width: 85%;
     height: 100%;
 
@@ -78,7 +86,7 @@ h2
 
 .connexion
 {
-    background-color: #609A7D;
+    background-color: #88A9C3;
     color: #F3F3F7;
     height: 100%;
     width: 100%;
@@ -86,33 +94,33 @@ h2
 
 .titleRecipe
 {
-    background-color: #DC9A7C;
+    background-color: #d7888d;
     color: #F3F3F7;
-    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
-    border: #609A7D 3px solid;
+    border: #88A9C3 3px solid;
     border-radius: 20%;
     width: 50%;
 }
 
 .card-title
 {
-    color: #DC9A7C;
-    font-family: 'Baloo Bhaina 2', sans-serif;
+    color: #d7888d;
+    font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     font-size: 2em;
 }
 
 .fullcard-text
 {
-    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-weight: 600;
     font-size: 2em;
 }
 
 .recipe h1
 {
-    color: #DC9A7C;
+    color: #d7888d;
 }
 
 .allRecipe img
@@ -123,45 +131,47 @@ h2
 
 .mentions h1
 {
-    background-color: #DC9A7C;
+    background-color: #d7888d;
     color: #F3F3F7;
-    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
-    border: #609A7D 3px solid;
+    border: #88A9C3 3px solid;
     border-radius: 20%;
     width: 50%;
 }
 
 .mentions li
 {
-    font-family: 'Noto sans', sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-size: 1.5em;
 }
 .mentions ul li
 {
-    font-family: 'Noto sans', sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-size: 1em;
 }
 
 .mentions h3
 {
     text-transform: uppercase;
-    font-family: 'Noto sans', sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-size: 1em;
 }
 
 .btn 
 {
-    background-color: #0C0920;
-    font-family: 'Baloo Bhaina 2', sans-serif;
+    background-color: #13558D;
+    font-family: 'Rajdhani', sans-serif;
     font-weight: 800;
+    font-size: 20px;
     color: #F3F3F7;
 }
 
 .footer
 {
-    background-color: #609A7D;
+    background-color: #88A9C3;
     color: #F3F3F7;
+    font-family: 'Barlow', sans-serif;
 }
 
 .notes a
@@ -172,7 +182,7 @@ h2
 }
 
 .gallery-wrapper {
-    background-color: #dbdbdb;
+    background-color: #F0D9C5;
     box-sizing: border-box;
     height: 185px;
     overflow: hidden;
@@ -187,7 +197,7 @@ h2
   }
   
   .gallery {
-    background-color: #dbdbdb;
+    background-color: #F0D9C5;
     display: flex;
     box-sizing: border-box;
     width: max-content;
@@ -208,19 +218,19 @@ h2
 
   .opinionRecipe  h5
   {
-    color:#DC9A7C
+    color:#d7888d
   }
 
   .note
   {
-    color: #609A7D;
+    color: #88A9C3;
   }
 
 .com
 {
-    background-color: #DC9A7C;
+    background-color: #d7888d;
     background-size: 50px 50px;
     color: #F3F3F7;
-    font-family: 'Baloo Bhaina 2', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
 }

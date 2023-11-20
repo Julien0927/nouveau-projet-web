@@ -3,9 +3,9 @@
 
  <nav class="navbar bg-body-tertiary">
    <div class="container-fluid navbar navColor">
-     <a class="navbar-brand mx-3" href="{{ path('app_main')}}"><img src="{{ asset('assets/images/icons8-60.png')}}"></a>
+     <a class="navbar-brand mx-3" href="{{ path('app_main')}}"><img class="logo" src="{{ asset('assets/images/icons82-60.png')}}"></a>
     <div class="d-block">
-    <h1 class="d-flex text-align-center">Diététicienne Nutritionniste</h1>
+    <h1 class="navTitle d-flex text-align-center">Diététicienne Nutritionniste</h1>
       {% if app.user %}
         <h5 class="d-flex justify-content-center">Bonjour {{ app.user.firstname }} {{ app.user.lastname }}</h5>
       {% endif %}
