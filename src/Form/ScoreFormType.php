@@ -35,7 +35,7 @@ class ScoreFormType extends AbstractType
                         'class' => 'form-control'
                     ],
                         'choices' => [
-                            'Donnez une note' => null,
+                            'Cliquez pour sélectionner une note' => null,
                             '1-Je n\'ai pas aimé' => '1',
                             '2-Moyen' => '2',
                             '3-Bon' => '3',

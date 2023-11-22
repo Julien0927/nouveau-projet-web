@@ -7,7 +7,7 @@
     <h1 class="titleRecipe rounded text-center pt-2">Recettes</h1>
 </div>
 <div class="container d-flex justify-content-center col-md-12 mt-5">
-    <div class="row gap-5 ">
+    <div class="fontCard row gap-5 ">
         {% for recipe in recipes %}
             <div class="card mb-3" style="max-width: 600px;">
                 <div class="row g-0">
@@ -44,7 +44,7 @@
                         <div class="d-flex justify-content-center">
                            {%for score in recipe.getNote() %}
                                 {%if loop.first %}
-                                    <p>"{{ score.getOpinion()|default('Aucune note') }}</p>
+                                    <p>"{{ score.getOpinion()|default('Aucune note') }}"</p>
                                 {%endif%}
 
                             {%endfor%}

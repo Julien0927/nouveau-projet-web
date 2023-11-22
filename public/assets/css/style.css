@@ -21,14 +21,15 @@
 .nav-link
 {
     color: #d7888d;
+    font-family: 'Barlow', sans-serif;
 }
 
 .title
 {
-    color: #13558D;
+    color: #d7888d;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
-    font-size: 4em;
+    font-size: 3em;
 }
 
 h2
@@ -68,6 +69,7 @@ h2
 
 .mainServices
 {
+    font-family: 'Barlow', sans-serif;
     background-color: #88A9C3;
     color: #F3F3F7;
     border: 3px solid #13558D;
@@ -109,6 +111,11 @@ h2
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     font-size: 2em;
+}
+
+.fontCard .contact
+{
+    font-family: 'Barlow', sans-serif;
 }
 
 .fullcard-text
@@ -165,6 +172,11 @@ h2
     font-weight: 800;
     font-size: 20px;
     color: #F3F3F7;
+}
+
+.login
+{
+    font-family: 'Barlow', sans-serif;
 }
 
 .footer

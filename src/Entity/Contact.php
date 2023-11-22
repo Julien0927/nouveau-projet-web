@@ -17,10 +17,12 @@ class Contact
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Veuillez saisir un prénom')]
+    #[Assert\Regex(pattern: '/^[a-zA-Z]+$/i', message: 'Veuillez saisir un prénom valide')]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Veuillez saisir un nom')]
+    #[Assert\Regex(pattern: '/^[a-zA-Z]+$/i', message: 'Veuillez saisir un nom valide')]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
