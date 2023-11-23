@@ -32,6 +32,8 @@ class Contact
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\NotBlank(message: 'Veuillez saisir un message')]
+    #[Assert\Regex(pattern: "/^[a-zA-Z0-9\s\.,!?']'*S/", 
+    message: "Votre commentaire ne peut contenir que des lettres, chiffres et quelques caractères spécifiques(.,!?')")]
     private ?string $message = null;
 
     public function getId(): ?int
