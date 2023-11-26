@@ -4,10 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Score;
 use App\Entity\Recipe;
-use App\Repository\ScoreRepository;
-use App\Repository\RecipeRepository;
 use App\Form\ScoreFormType;
-use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
