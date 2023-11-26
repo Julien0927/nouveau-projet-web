@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Recipe;
-use App\Entity\Score;
 use App\Repository\RecipeRepository;
 use App\Repository\ScoreRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
