@@ -1,4 +1,6 @@
 {
+    "name": "symfony/website-skeleton",
+    "description": "A skeleton to start a new Symfony website",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
