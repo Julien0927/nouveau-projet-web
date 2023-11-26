@@ -3,9 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Recipe;
-use App\Repository\RecipeRepository;
-use App\Repository\ScoreRepository;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
