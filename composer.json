@@ -1,10 +1,12 @@
 {
+    "name": "symfony/skeleton",
+    "description": "A skeleton to start a new Symfony project",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^2.10",
