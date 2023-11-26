@@ -90,8 +90,7 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "requirements-checker": "script",
-            "heroku-postbuild" : "node_modules/.bin/encore production"
+            "requirements-checker": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"
